@@ -1,0 +1,20 @@
+{
+  "import": [
+    {
+      "path": "horideicom/moonchat/core",
+      "alias": "core"
+    },
+    {
+      "path": "mizchi/luna/luna/dom/element",
+      "alias": "element"
+    },
+    {
+      "path": "mizchi/luna/luna/signal",
+      "alias": "signal"
+    },
+    {
+      "path": "mizchi/js/browser/dom",
+      "alias": "js_dom"
+    }
+  ]
+}

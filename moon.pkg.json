@@ -3,6 +3,10 @@
     {
       "path": "horideicom/moonchat/core",
       "alias": "core"
+    },
+    {
+      "path": "horideicom/moonchat/components",
+      "alias": "components"
     }
   ]
 }
