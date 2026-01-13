@@ -15,13 +15,7 @@ pub fn Message::new(
   timestamp_ms : Int64,
   status? : MessageStatus = MessageStatus::Sending,
 ) -> Message {
-  {
-    id,
-    sender,
-    content,
-    timestamp_ms,
-    status: @luna.signal(status),
-  }
+  { id, sender, content, timestamp_ms, status: @luna.signal(status) }
 }
 
 ///|
@@ -62,12 +56,16 @@ pub fn ChatStore::new() -> ChatStore {
 }
 
 ///|
-pub fn ChatStore::messages_signal(self : ChatStore) -> @luna.Signal[Array[Message]] {
+pub fn ChatStore::messages_signal(
+  self : ChatStore,
+) -> @luna.Signal[Array[Message]] {
   self.messages
 }
 
 ///|
-pub fn ChatStore::typing_users_signal(self : ChatStore) -> @luna.Signal[Array[User]] {
+pub fn ChatStore::typing_users_signal(
+  self : ChatStore,
+) -> @luna.Signal[Array[User]] {
   self.typing_users
 }
 
@@ -91,7 +89,7 @@ pub fn ChatStore::set_messages(
 
 ///|
 pub fn ChatStore::add_message(self : ChatStore, message : Message) -> Unit {
-  self.messages.update(fn (current) {
+  self.messages.update(fn(current) {
     let next = current.copy()
     next.push(message)
     next
@@ -114,7 +112,10 @@ pub fn ChatStore::update_message_status(
 }
 
 ///|
-pub fn ChatStore::set_typing_users(self : ChatStore, users : Array[User]) -> Unit {
+pub fn ChatStore::set_typing_users(
+  self : ChatStore,
+  users : Array[User],
+) -> Unit {
   self.typing_users.set(users)
 }
 
@@ -124,7 +125,7 @@ pub fn ChatStore::set_user_typing(
   user : User,
   typing : Bool,
 ) -> Unit {
-  self.typing_users.update(fn (current) {
+  self.typing_users.update(fn(current) {
     if typing {
       let exists = current.any(u => u.id == user.id)
       if exists {

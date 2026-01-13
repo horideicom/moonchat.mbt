@@ -4,6 +4,14 @@
     {
       "path": "horideicom/moonchat",
       "alias": "lib"
+    },
+    {
+      "path": "mizchi/luna/luna/dom/element",
+      "alias": "element"
+    },
+    {
+      "path": "mizchi/js/browser/dom",
+      "alias": "js_dom"
     }
   ]
 }

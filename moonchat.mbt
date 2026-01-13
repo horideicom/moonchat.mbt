@@ -32,13 +32,7 @@ pub fn new_message(
   timestamp_ms : Int64,
   status? : MessageStatus = MessageStatus::Sending,
 ) -> Message {
-  @core.Message::new(
-    id,
-    sender,
-    content,
-    timestamp_ms,
-    status=status,
-  )
+  @core.Message::new(id, sender, content, timestamp_ms, status~)
 }
 
 ///|
@@ -57,5 +51,5 @@ pub fn input_area(
   placeholder? : String = "Type a message...",
   disabled? : Bool = false,
 ) -> DomNode {
-  @components.input_area(on_send, placeholder=placeholder, disabled=disabled)
+  @components.input_area(on_send, placeholder~, disabled~)
 }

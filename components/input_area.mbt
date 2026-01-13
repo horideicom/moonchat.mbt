@@ -1,8 +1,5 @@
 ///|
-using @element { button, div, events, text, textarea, type DomNode }
-
-///|
-using @signal { signal }
+using @signal {signal}
 
 ///|
 pub fn input_area(
@@ -11,7 +8,6 @@ pub fn input_area(
   disabled? : Bool = false,
 ) -> DomNode {
   let text_value = signal("")
-
   fn send_current() -> Unit {
     let current = text_value.get()
     let trimmed = current.trim()
@@ -23,7 +19,7 @@ pub fn input_area(
   }
 
   fn handle_input(ev : @js_dom.InputEvent) -> Unit {
-    let target : @js_dom.HTMLTextAreaElement = ev.target() |> @core.identity
+    let target = @js_dom.HTMLTextAreaElement::cast_from_element(ev.target())
     text_value.set(target.value)
   }
 
@@ -34,25 +30,22 @@ pub fn input_area(
     }
   }
 
-  div(
-    class="mc-input-area",
-    [
-      textarea(
-        class="mc-input-area__field",
-        placeholder=placeholder,
-        disabled=disabled,
-        on=events().input(handle_input).keydown(handle_keydown),
-        dyn_attrs=[
-          ("value", @element.AttrValue::Dynamic(fn() { text_value.get() })),
-        ],
-        [],
-      ),
-      button(
-        class="mc-input-area__send",
-        on=events().click(fn(_) { send_current() }),
-        dyn_disabled=fn() { disabled || text_value.get().trim().length() == 0 },
-        [text("Send")],
-      ),
-    ],
-  )
+  div(class="mc-input-area", [
+    textarea(
+      class="mc-input-area__field",
+      placeholder~,
+      disabled~,
+      on=events().input(handle_input).keydown(handle_keydown),
+      dyn_attrs=[
+        ("value", @element.AttrValue::Dynamic(fn() { text_value.get() })),
+      ],
+      [],
+    ),
+    button(
+      class="mc-input-area__send",
+      on=events().click(fn(_) { send_current() }),
+      dyn_disabled=fn() { disabled || text_value.get().trim().length() == 0 },
+      [text("Send")],
+    ),
+  ])
 }
