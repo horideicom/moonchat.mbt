@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "horideicom/moonchat/core"
+package "f4ah6o/moonchat/core"
 
 import(
   "mizchi/luna/luna/signal"

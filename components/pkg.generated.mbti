@@ -1,8 +1,8 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "horideicom/moonchat/components"
+package "f4ah6o/moonchat/components"
 
 import(
-  "horideicom/moonchat/core"
+  "f4ah6o/moonchat/core"
   "mizchi/luna/luna/dom/element"
 )
 

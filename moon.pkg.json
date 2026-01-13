@@ -1,11 +1,11 @@
 {
   "import": [
     {
-      "path": "horideicom/moonchat/core",
+      "path": "f4ah6o/moonchat/core",
       "alias": "core"
     },
     {
-      "path": "horideicom/moonchat/components",
+      "path": "f4ah6o/moonchat/components",
       "alias": "components"
     }
   ]
