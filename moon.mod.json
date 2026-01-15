@@ -1,17 +1,13 @@
 {
   "name": "f4ah6o/moonchat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "deps": {
-    "mizchi/js": "0.10.7",
-    "mizchi/luna": "0.4.1",
-    "mizchi/markdown": "0.3.3",
-    "moonbitlang/async": "0.15.0",
-    "moonbitlang/yacc": "0.7.8"
+    "mizchi/js": "0.10.10"
   },
   "readme": "README.mbt.md",
   "repository": "https://github.com/f4ah6o/moonchat.mbt",
   "license": "Apache-2.0",
   "keywords": [],
-  "description": "",
+  "description": "Hypermedia Driven Chat UI using Engenis HDA framework (JS target)",
   "preferred-target":"js"
 }

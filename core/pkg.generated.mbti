@@ -1,29 +1,36 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "f4ah6o/moonchat/core"
 
-import(
-  "mizchi/luna/luna/signal"
-)
-
 // Values
+pub let global_store : ChatStore
+
+pub fn sending_status() -> MessageStatus
+
+pub fn sent_status() -> MessageStatus
+
+pub fn system_content(String) -> MessageContent
+
+pub fn text_content(String) -> MessageContent
 
 // Errors
 
 // Types and methods
-pub struct ChatStore {
-  messages : @signal.Signal[Array[Message]]
-  typing_users : @signal.Signal[Array[User]]
-  is_connected : @signal.Signal[Bool]
+pub(all) struct ChatStore {
+  mut messages : Array[Message]
+  mut typing_users : Array[User]
+  mut connected : Bool
+  mut message_counter : Int
 }
 pub fn ChatStore::add_message(Self, Message) -> Unit
-pub fn ChatStore::connection_signal(Self) -> @signal.Signal[Bool]
-pub fn ChatStore::messages_signal(Self) -> @signal.Signal[Array[Message]]
+pub fn ChatStore::find_message(Self, String) -> Message?
+pub fn ChatStore::get_messages(Self) -> Array[Message]
+pub fn ChatStore::get_typing_users(Self) -> Array[User]
+pub fn ChatStore::is_connected(Self) -> Bool
 pub fn ChatStore::new() -> Self
+pub fn ChatStore::next_message_id(Self) -> String
 pub fn ChatStore::set_connected(Self, Bool) -> Unit
-pub fn ChatStore::set_messages(Self, Array[Message]) -> Unit
 pub fn ChatStore::set_typing_users(Self, Array[User]) -> Unit
 pub fn ChatStore::set_user_typing(Self, User, Bool) -> Unit
-pub fn ChatStore::typing_users_signal(Self) -> @signal.Signal[Array[User]]
 pub fn ChatStore::update_message_status(Self, String, MessageStatus) -> Bool
 
 pub struct Message {
@@ -31,12 +38,11 @@ pub struct Message {
   sender : User
   content : MessageContent
   timestamp_ms : Int64
-  status : @signal.Signal[MessageStatus]
+  status : MessageStatus
 }
 pub fn Message::new(String, User, MessageContent, Int64, status? : MessageStatus) -> Self
-pub fn Message::set_status(Self, MessageStatus) -> Unit
+pub fn Message::set_status(Self, MessageStatus) -> Self
 pub fn Message::snapshot(Self) -> MessageSnapshot
-pub fn Message::status_value(Self) -> MessageStatus
 
 pub(all) enum MessageContent {
   Text(String)
@@ -47,7 +53,7 @@ pub(all) enum MessageContent {
 pub impl Eq for MessageContent
 pub impl Show for MessageContent
 
-pub(all) struct MessageSnapshot {
+pub struct MessageSnapshot {
   id : String
   sender : User
   content : MessageContent

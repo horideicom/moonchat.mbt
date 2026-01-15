@@ -1,12 +1,10 @@
 {
+  "is": "web",
+  "pp": "js",
   "import": [
     {
       "path": "f4ah6o/moonchat/core",
       "alias": "core"
-    },
-    {
-      "path": "f4ah6o/moonchat/web",
-      "alias": "web"
     },
     {
       "path": "f4ah6o/moonchat/html",

@@ -1,0 +1,246 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "f4ah6o/moonchat/html"
+
+// Values
+pub fn a() -> ElementBuilder
+
+pub fn article() -> ElementBuilder
+
+pub fn aside() -> ElementBuilder
+
+pub fn attr_str(String, String) -> Attrs
+
+pub fn attr_value_str(String) -> AttrValue
+
+pub fn blockquote() -> ElementBuilder
+
+pub fn body() -> ElementBuilder
+
+pub fn br() -> ElementBuilder
+
+pub fn button() -> ElementBuilder
+
+pub fn charset(String) -> Html
+
+pub fn code() -> ElementBuilder
+
+pub fn del() -> ElementBuilder
+
+pub fn div() -> ElementBuilder
+
+pub fn doctype() -> Html
+
+pub fn em() -> ElementBuilder
+
+pub fn footer() -> ElementBuilder
+
+pub fn form() -> ElementBuilder
+
+pub fn fragment(Array[Html]) -> Html
+
+pub fn h1() -> ElementBuilder
+
+pub fn h2() -> ElementBuilder
+
+pub fn h3() -> ElementBuilder
+
+pub fn h4() -> ElementBuilder
+
+pub fn h5() -> ElementBuilder
+
+pub fn h6() -> ElementBuilder
+
+pub fn head() -> ElementBuilder
+
+pub fn header() -> ElementBuilder
+
+pub fn hr() -> ElementBuilder
+
+pub fn html() -> ElementBuilder
+
+pub fn img() -> ElementBuilder
+
+pub fn input() -> ElementBuilder
+
+pub fn label() -> ElementBuilder
+
+pub fn li() -> ElementBuilder
+
+pub fn link_tag() -> ElementBuilder
+
+pub fn main_el() -> ElementBuilder
+
+pub fn meta() -> ElementBuilder
+
+pub fn nav() -> ElementBuilder
+
+pub fn ol() -> ElementBuilder
+
+pub fn p() -> ElementBuilder
+
+pub fn pre() -> ElementBuilder
+
+pub fn raw(String) -> Html
+
+pub fn script() -> ElementBuilder
+
+pub fn section() -> ElementBuilder
+
+pub fn small() -> ElementBuilder
+
+pub fn span() -> ElementBuilder
+
+pub fn strong() -> ElementBuilder
+
+pub fn style() -> ElementBuilder
+
+pub fn stylesheet(String) -> Html
+
+pub fn table() -> ElementBuilder
+
+pub fn tbody() -> ElementBuilder
+
+pub fn td() -> ElementBuilder
+
+pub fn text(String) -> Html
+
+pub fn textarea() -> ElementBuilder
+
+pub fn th() -> ElementBuilder
+
+pub fn thead() -> ElementBuilder
+
+pub fn title() -> ElementBuilder
+
+pub fn tr() -> ElementBuilder
+
+pub fn ul() -> ElementBuilder
+
+pub fn viewport(String) -> Html
+
+pub fn when(Bool, Html) -> Html
+
+pub fn when_else(Bool, Html, Html) -> Html
+
+// Errors
+
+// Types and methods
+pub enum AttrValue {
+  Str(String)
+  Bool(Bool)
+  Int(Int)
+  None
+}
+pub fn AttrValue::to_string(Self) -> String
+pub impl Eq for AttrValue
+pub impl Show for AttrValue
+
+pub struct Attrs {
+  attrs : Array[(String, AttrValue)]
+}
+pub fn Attrs::add(Self, String, AttrValue) -> Self
+pub fn Attrs::attr_type(Self, String) -> Self
+pub fn Attrs::class(Self, String) -> Self
+pub fn Attrs::data(Self, String, String) -> Self
+pub fn Attrs::href(Self, String) -> Self
+pub fn Attrs::hx_delete(Self, String) -> Self
+pub fn Attrs::hx_get(Self, String) -> Self
+pub fn Attrs::hx_patch(Self, String) -> Self
+pub fn Attrs::hx_post(Self, String) -> Self
+pub fn Attrs::hx_put(Self, String) -> Self
+pub fn Attrs::hx_swap(Self, String) -> Self
+pub fn Attrs::hx_swap_safe(Self, Swap) -> Self
+pub fn Attrs::hx_target(Self, String) -> Self
+pub fn Attrs::hx_trigger(Self, String) -> Self
+pub fn Attrs::hx_trigger_safe(Self, Trigger) -> Self
+pub fn Attrs::id(Self, String) -> Self
+pub fn Attrs::merge(Self, Self) -> Self
+pub fn Attrs::name(Self, String) -> Self
+pub fn Attrs::new() -> Self
+pub fn Attrs::placeholder(Self, String) -> Self
+pub fn Attrs::value(Self, String) -> Self
+pub impl Show for Attrs
+
+pub struct ElementBuilder {
+  tag : String
+  attrs : Attrs
+  is_void : Bool
+}
+pub fn ElementBuilder::attr(Self, String, AttrValue) -> Self
+pub fn ElementBuilder::attr_str(Self, String, String) -> Self
+pub fn ElementBuilder::attr_type(Self, String) -> Self
+pub fn ElementBuilder::attrs(Self, Attrs) -> Self
+pub fn ElementBuilder::child(Self, Html) -> Html
+pub fn ElementBuilder::children(Self, Array[Html]) -> Html
+pub fn ElementBuilder::class(Self, String) -> Self
+pub fn ElementBuilder::data(Self, String, String) -> Self
+pub fn ElementBuilder::empty(Self) -> Html
+pub fn ElementBuilder::href(Self, String) -> Self
+pub fn ElementBuilder::hx_delete(Self, String) -> Self
+pub fn ElementBuilder::hx_get(Self, String) -> Self
+pub fn ElementBuilder::hx_patch(Self, String) -> Self
+pub fn ElementBuilder::hx_post(Self, String) -> Self
+pub fn ElementBuilder::hx_put(Self, String) -> Self
+pub fn ElementBuilder::hx_swap(Self, String) -> Self
+pub fn ElementBuilder::hx_swap_safe(Self, Swap) -> Self
+pub fn ElementBuilder::hx_target(Self, String) -> Self
+pub fn ElementBuilder::hx_trigger(Self, String) -> Self
+pub fn ElementBuilder::hx_trigger_safe(Self, Trigger) -> Self
+pub fn ElementBuilder::id(Self, String) -> Self
+pub fn ElementBuilder::name(Self, String) -> Self
+pub fn ElementBuilder::placeholder(Self, String) -> Self
+pub fn ElementBuilder::text(Self, String) -> Html
+pub fn ElementBuilder::value(Self, String) -> Self
+
+pub enum Html {
+  Element(String, Attrs, Array[Html], Bool)
+  Text(String)
+  Fragment(Array[Html])
+  Raw(String)
+  When(Bool, Html, Html?)
+}
+pub fn Html::render(Self) -> String
+pub impl Show for Html
+
+pub enum Swap {
+  InnerHTML
+  OuterHTML
+  BeforeBegin
+  AfterBegin
+  BeforeEnd
+  AfterEnd
+  Delete
+  None
+}
+pub fn Swap::from_string(String) -> Self
+pub fn Swap::to_string(Self) -> String
+pub impl Eq for Swap
+pub impl Show for Swap
+
+pub enum Trigger {
+  Event(String)
+  EventWithMods(String, Array[TriggerMod])
+  Multiple(Array[Trigger])
+}
+pub fn Trigger::to_string(Self) -> String
+pub impl Show for Trigger
+
+pub enum TriggerMod {
+  Once
+  Changed
+  Delay(Int)
+  Throttle(Int)
+  From(String)
+  Target(String)
+  Filter(String)
+  Consumed
+  Queue(String)
+}
+pub fn TriggerMod::to_string(Self) -> String
+pub impl Eq for TriggerMod
+pub impl Show for TriggerMod
+
+// Type aliases
+
+// Traits
+

@@ -1,8 +1,4 @@
 {
-  "import": [
-    {
-      "path": "mizchi/luna",
-      "alias": "luna"
-    }
-  ]
+  "is": "core",
+  "pp": "js"
 }

@@ -1,0 +1,58 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "f4ah6o/moonchat/web"
+
+import(
+  "f4ah6o/moonchat/core"
+  "f4ah6o/moonchat/html"
+)
+
+// Values
+pub fn assets_htmx_js() -> String
+
+pub fn get_attrs(String, String, String) -> @html.Attrs
+
+pub fn handle_message_list(@core.ChatStore, String) -> HttpResponse
+
+pub fn handle_root(@core.ChatStore, String) -> HttpResponse
+
+pub fn handle_send_message(@core.ChatStore, String, @core.User) -> HttpResponse
+
+pub fn handle_simulate(@core.ChatStore, @core.User) -> HttpResponse
+
+pub fn hda_response(String) -> HttpResponse
+
+pub fn html_response(String) -> HttpResponse
+
+pub fn message_list() -> String
+
+pub fn post_attrs(String, String, String) -> @html.Attrs
+
+pub fn render_css() -> String
+
+pub fn render_input_area() -> @html.Html
+
+pub fn render_message_bubble(@core.Message, String) -> @html.Html
+
+pub fn render_message_list(Array[@core.Message], String) -> @html.Html
+
+pub fn render_page(Array[@core.Message], Bool, String) -> String
+
+pub fn root() -> String
+
+pub fn send_message() -> String
+
+pub fn simulate() -> String
+
+// Errors
+
+// Types and methods
+pub struct HttpResponse {
+  status_code : Int
+  headers : Array[(String, String)]
+  body : String
+}
+
+// Type aliases
+
+// Traits
+

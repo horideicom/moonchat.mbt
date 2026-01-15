@@ -3,19 +3,23 @@ package "f4ah6o/moonchat"
 
 import(
   "f4ah6o/moonchat/core"
-  "mizchi/luna/luna/dom/element"
+  "f4ah6o/moonchat/html"
 )
 
 // Values
-pub fn input_area((String) -> Unit, placeholder? : String, disabled? : Bool) -> @element.DomNode
-
-pub fn message_bubble(@core.Message, self_id? : String) -> @element.DomNode
-
-pub fn message_list(@core.ChatStore, self_id? : String) -> @element.DomNode
-
 pub fn new_message(String, @core.User, @core.MessageContent, Int64, status? : @core.MessageStatus) -> @core.Message
 
 pub fn new_store() -> @core.ChatStore
+
+pub fn render_css() -> String
+
+pub fn render_input_area() -> @html.Html
+
+pub fn render_message_bubble(@core.Message, String) -> @html.Html
+
+pub fn render_message_list(Array[@core.Message], String) -> @html.Html
+
+pub fn render_page(Array[@core.Message], Bool, String) -> String
 
 // Errors
 
@@ -24,7 +28,7 @@ pub fn new_store() -> @core.ChatStore
 // Type aliases
 pub using @core {type ChatStore}
 
-pub using @element {type DomNode}
+pub using @html {type Html}
 
 pub using @core {type Message}
 

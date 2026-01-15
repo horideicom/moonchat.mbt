@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "f4ah6o/moonchat/cmd/main"
+package "f4ah6o/moonchat/cmd/server"
 
 // Values
 

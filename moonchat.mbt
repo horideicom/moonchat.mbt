@@ -17,7 +17,7 @@ pub type Message = @core.Message
 pub type ChatStore = @core.ChatStore
 
 ///|
-pub type DomNode = @components.DomNode
+pub type Html = @html.Html
 
 ///|
 pub fn new_store() -> ChatStore {
@@ -36,20 +36,30 @@ pub fn new_message(
 }
 
 ///|
-pub fn message_bubble(message : Message, self_id? : String) -> DomNode {
-  @components.message_bubble(message, self_id?)
+pub fn render_css() -> String {
+  @web.render_css()
 }
 
 ///|
-pub fn message_list(store : ChatStore, self_id? : String) -> DomNode {
-  @components.message_list(store, self_id?)
+pub fn render_message_bubble(message : Message, self_id : String) -> Html {
+  @web.render_message_bubble(message, self_id)
 }
 
 ///|
-pub fn input_area(
-  on_send : (String) -> Unit,
-  placeholder? : String = "Type a message...",
-  disabled? : Bool = false,
-) -> DomNode {
-  @components.input_area(on_send, placeholder~, disabled~)
+pub fn render_message_list(messages : Array[Message], self_id : String) -> Html {
+  @web.render_message_list(messages, self_id)
+}
+
+///|
+pub fn render_input_area() -> Html {
+  @web.render_input_area()
+}
+
+///|
+pub fn render_page(
+  messages : Array[Message],
+  connected : Bool,
+  self_id : String,
+) -> String {
+  @web.render_page(messages, connected, self_id)
 }

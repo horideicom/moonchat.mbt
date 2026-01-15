@@ -1,4 +1,10 @@
 {
+  "is_main": true,
+  "targets": {
+    "main.mbt": ["not", "js"],
+    "main_js.mbt": ["js"]
+  },
+  "warn-list": "-29",
   "import": [
     {
       "path": "f4ah6o/moonchat/core",
@@ -7,10 +13,6 @@
     {
       "path": "f4ah6o/moonchat/web",
       "alias": "web"
-    },
-    {
-      "path": "f4ah6o/moonchat/html",
-      "alias": "html"
     }
   ]
 }
